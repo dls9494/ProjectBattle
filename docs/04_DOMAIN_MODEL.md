@@ -38,3 +38,36 @@ Metrics become Intelligence.
 
 Intelligence becomes Explanation.
 
+
+# 3. Domain Entities
+
+The following entities make up the Project Battle domain.
+
+## Core Entities
+
+- UserProfile
+- Mission
+- DailyRecord
+- WeightEntry
+- NutritionEntry
+- WaterEntry
+- SleepEntry
+- ActivityEntry
+- TimelineEvent
+- Settings
+
+## Generated Domain Models
+
+The following models are generated at runtime and MUST NOT be persisted.
+
+- MissionSnapshot
+
+## Domain Services
+
+The following services contain business logic.
+
+- Validation Engine
+- Metrics Engine
+- Intelligence Engine
+- Explanation Layer
+
