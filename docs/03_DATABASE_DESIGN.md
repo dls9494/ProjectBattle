@@ -637,3 +637,27 @@ Valid transitions as previously defined.
 - Unit is hours.
 - One SleepEntry per DailyRecord.
 
+
+# 11. Entity Contract - ActivityEntry
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| steps | Integer | Yes | >= 0 | Total steps |
+| distanceKm | Double | Yes | >= 0 | Walking distance |
+| walkingMinutes | Integer | Yes | >= 0 | Walking duration |
+| walkingCalories | Integer | Yes | >= 0 | Walking calories |
+| screenshotPath | String | No | Local file path | Samsung Health screenshot |
+| source | Enum | Yes | Manual, AI | Data source |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+## Rules
+
+- One ActivityEntry per DailyRecord.
+- Screenshot is stored locally only.
+- AI-extracted values require user confirmation before saving.
+
