@@ -628,3 +628,45 @@ Suggest what would be required to achieve the selected mission target.
 
 Recommendations must never be judgmental or prescriptive.
 
+
+# 10. Data Integrity
+
+## 10.1 Source of Truth
+
+Project Battle MUST treat user-entered data as the primary source of truth.
+
+Derived values MUST always be calculated from raw data.
+
+The system MUST NOT permanently store generated intelligence, recommendations, or AI summaries.
+
+---
+
+## 10.2 Historical Integrity
+
+Historical records MUST remain immutable.
+
+If a user edits historical data:
+
+- The original event MUST remain timestamped.
+- Derived calculations MUST be regenerated.
+- Mission projections MUST be updated.
+- Intelligence reports MUST be regenerated.
+
+---
+
+## 10.3 Transparency
+
+Every calculated value MUST be traceable.
+
+Whenever possible, the application SHOULD allow the user to inspect the data used to generate a conclusion.
+
+---
+
+## 10.4 Error Handling
+
+If sufficient data is unavailable, the system MUST explicitly state:
+
+"There is insufficient evidence to produce a reliable conclusion."
+
+The system MUST NOT invent missing information.
+
