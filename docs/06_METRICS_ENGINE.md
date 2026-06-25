@@ -1,6 +1,6 @@
 # PROJECT BATTLE
 
-# Calculation Engine
+# Metrics Engine
 
 Version: 1.0.0
 
@@ -14,11 +14,11 @@ Codename: Project Battle
 
 # 1. Purpose
 
-The Calculation Engine is the mathematical core of Project Battle.
+The Metrics Engine is the mathematical core of Project Battle.
 
 It transforms raw user data into deterministic metrics.
 
-The Calculation Engine MUST:
+The Metrics Engine MUST:
 
 - Be deterministic.
 - Be explainable.
@@ -27,7 +27,7 @@ The Calculation Engine MUST:
 - Be independent of AI.
 - Produce identical outputs for identical inputs.
 
-The Calculation Engine MUST NOT:
+The Metrics Engine MUST NOT:
 
 - Store data.
 - Generate recommendations.
@@ -290,7 +290,7 @@ Incorrect values are never assumed.
 
 # 11. Calculation Principles
 
-The Calculation Engine MUST:
+The Metrics Engine MUST:
 
 - Be deterministic.
 - Produce identical outputs for identical inputs.
@@ -300,7 +300,7 @@ The Calculation Engine MUST:
 - Never depend on Flutter.
 - Never depend on Hive.
 
-The Calculation Engine MUST remain a pure Domain component.
+The Metrics Engine MUST remain a pure Domain component.
 
 ---
 
