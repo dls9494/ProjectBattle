@@ -876,3 +876,83 @@ Create New Mission
 ↓
 
 Return to Dashboard
+
+# 13. Acceptance Criteria
+
+## 13.1 Mission Management
+
+The feature is considered complete when:
+
+- A user can create exactly one active mission.
+- A mission can be edited without losing historical data.
+- A mission can be paused and resumed.
+- A completed mission moves to history.
+- Creating or editing a mission immediately updates all projections.
+
+---
+
+## 13.2 Daily Logging
+
+The feature is considered complete when:
+
+- Daily data can be entered in less than two minutes.
+- Historical daily logs can be edited.
+- Editing historical data automatically recalculates affected values.
+- Samsung Health screenshots can be attached to a daily log.
+
+---
+
+## 13.3 Intelligence
+
+The feature is considered complete when:
+
+Every intelligence report includes:
+
+- Observation
+- Why It Matters
+- Evidence
+- Confidence
+- Recommendation (optional)
+
+No intelligence report may exist without supporting evidence.
+
+---
+
+## 13.4 Dashboard
+
+The dashboard is considered complete when it answers:
+
+- What changed?
+- Where am I?
+- What does my data say?
+- Why?
+- How confident is the system?
+
+without requiring navigation to another screen.
+
+---
+
+## 13.5 Performance
+
+Version 1 MUST satisfy:
+
+- Application launch < 2 seconds.
+- Dashboard load < 500 milliseconds.
+- Local calculations complete instantly.
+- No internet required for core functionality.
+
+
+# 14. Definition of Not Done
+
+A feature is **NOT DONE** if:
+
+- It works but isn't documented.
+- It works but isn't tested.
+- It works but isn't offline.
+- It works but has unexplained AI conclusions.
+- It works but lacks evidence.
+- It works but reduces performance.
+- It works but violates the Project Constitution.
+
+This definition serves as the quality gate before every release.
+
