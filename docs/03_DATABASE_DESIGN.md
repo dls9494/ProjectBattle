@@ -255,6 +255,7 @@ Entities MUST NOT share mutable state.
 | id | UUID v7 | Yes | Auto Generated | Unique mission identifier |
 | name | String | Yes | 1–100 characters | Mission name |
 | description | String | No | Max 500 characters | Optional description |
+| goalReason | String | No | Max 200 chars | Context (e.g., "August 15 Event") |
 | targetWeightLossKg | Double | Yes | > 0 | Target weight loss |
 | targetDate | Date | Yes | Future date | Mission target date |
 | startDate | Date | Yes | Auto Generated | Mission start date |
@@ -263,6 +264,7 @@ Entities MUST NOT share mutable state.
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -407,6 +409,7 @@ The application MUST reject invalid transitions.
 | id | UUID v7 | Yes | Auto Generated | Unique mission identifier |
 | name | String | Yes | 1–100 characters | Mission name |
 | description | String | No | Max 500 characters | Optional description |
+| goalReason | String | No | Max 200 chars | Context (e.g., "August 15 Event") |
 | startWeightKg | Double | Yes | > 0 and < 300 | Starting body weight in kg |
 | targetWeightKg | Double | Yes | > 0 and < 300, must be < startWeightKg | Target body weight in kg |
 | targetDate | Date | Yes | Future date | Mission target date |
@@ -416,6 +419,7 @@ The application MUST reject invalid transitions.
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -495,6 +499,7 @@ The application MUST reject invalid transitions.
 | id | UUID v7 | Yes | Auto Generated | Unique mission identifier |
 | name | String | No | Max 100 characters, auto-generated if omitted | Mission name (optional) |
 | description | String | No | Max 500 characters | Optional description |
+| goalReason | String | No | Max 200 chars | Context (e.g., "August 15 Event") |
 | startWeightKg | Double | Yes | > 0 and < 300 | Starting body weight in kg |
 | targetWeightKg | Double | Yes | > 0 and < 300, must be < startWeightKg | Target body weight in kg |
 | targetDate | Date | Yes | Future date | Mission target date |
@@ -504,6 +509,7 @@ The application MUST reject invalid transitions.
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -566,6 +572,7 @@ Valid transitions as previously defined.
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -584,9 +591,11 @@ Valid transitions as previously defined.
 | calories | Integer | Yes | >= 0 | Total calories |
 | proteinGrams | Double | Yes | >= 0 | Protein intake |
 | source | Enum | Yes | Manual, AI | Data source |
+| notes | String | No | Max 500 chars | Optional notes (e.g., "2 boiled eggs") |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -605,9 +614,11 @@ Valid transitions as previously defined.
 | id | UUID v7 | Yes | Auto Generated | Unique identifier |
 | litres | Double | Yes | >= 0 | Water consumed |
 | source | Enum | Yes | Manual | Data source |
+| notes | String | No | Max 500 chars | Optional notes (e.g., "2 boiled eggs") |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -625,9 +636,11 @@ Valid transitions as previously defined.
 | id | UUID v7 | Yes | Auto Generated | Unique identifier |
 | hours | Double | Yes | >= 0 | Total sleep duration |
 | source | Enum | Yes | Manual | Data source |
+| notes | String | No | Max 500 chars | Optional notes (e.g., "2 boiled eggs") |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -646,12 +659,14 @@ Valid transitions as previously defined.
 | steps | Integer | Yes | >= 0 | Total steps |
 | distanceKm | Double | Yes | >= 0 | Walking distance |
 | walkingMinutes | Integer | Yes | >= 0 | Walking duration |
-| walkingCalories | Integer | Yes | >= 0 | Walking calories |
+| activeCalories | Integer | Yes | >= 0 | Walking calories |
 | screenshotPath | String | No | Local file path | Samsung Health screenshot |
 | source | Enum | Yes | Manual, AI | Data source |
+| notes | String | No | Max 500 chars | Optional notes (e.g., "2 boiled eggs") |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -670,9 +685,11 @@ Valid transitions as previously defined.
 | weightKg | Double | Yes | > 0 | Body weight |
 | isOfficial | Boolean | Yes | Default = true | Used for mission calculations |
 | source | Enum | Yes | Manual | Data source |
+| notes | String | No | Max 500 chars | Optional notes (e.g., "2 boiled eggs") |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -693,8 +710,10 @@ Valid transitions as previously defined.
 | eventDate | DateTime (UTC) | Yes | Required | Event timestamp |
 | title | String | Yes | Max 100 chars | Event title |
 | description | String | No | Max 500 chars | Optional details |
+| goalReason | String | No | Max 200 chars | Context (e.g., "August 15 Event") |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
@@ -718,7 +737,7 @@ Valid transitions as previously defined.
 - Timeline events are never deleted.
 
 
-# 14. Entity Contract - PatternMemory
+# 14. Entity Contract - AnalyticsCache
 
 | Field | Type | Required | Validation | Description |
 |--------|------|----------|------------|-------------|
@@ -727,13 +746,37 @@ Valid transitions as previously defined.
 | value | JSON | Yes | Valid JSON | Calculated pattern data |
 | calculatedAt | DateTime (UTC) | Yes | Auto Generated | Last calculation time |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
 
 ---
 
 ## Rules
 
-- PatternMemory is generated by the Pattern Memory Engine.
+- AnalyticsCache is generated by the Pattern Memory Engine.
 - It is a cache only.
 - It may be deleted and regenerated at any time.
 - It is never edited manually.
+
+
+# 15. Entity Contract - Settings
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| currentMissionId | UUID v7 | No | Nullable | Active mission |
+| themeMode | Enum | Yes | System, Light, Dark | App theme |
+| units | Enum | Yes | Metric | Measurement units |
+| aiEnabled | Boolean | Yes | Default = true | Enable AI explanations |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+| deletedAt | DateTime (UTC) | No | Nullable | Soft delete timestamp |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+
+---
+
+## Rules
+
+- Only one Settings record exists.
+- Settings affect application behavior only.
+- Settings never contain mission or health data.
 
