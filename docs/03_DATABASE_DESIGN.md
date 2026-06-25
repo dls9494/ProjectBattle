@@ -562,7 +562,7 @@ Valid transitions as previously defined.
 | sleepEntryId | UUID v7 | No | Nullable | Sleep reference |
 | activityEntryId | UUID v7 | No | Nullable | Activity reference |
 | weightEntryId | UUID v7 | No | Nullable | Weight reference |
-| notes | String | No | Max 1000 chars | Optional notes |
+| notesEntryId | UUID v7 | No | Nullable | Reference to NotesEntry |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
