@@ -575,3 +575,24 @@ Valid transitions as previously defined.
 - DailyRecord is an aggregator only.
 - It MUST NOT store calculated values.
 
+
+# 8. Entity Contract - NutritionEntry
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| calories | Integer | Yes | >= 0 | Total calories |
+| proteinGrams | Double | Yes | >= 0 | Protein intake |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+## Rules
+
+- Calories are manually entered.
+- Protein is manually entered.
+- No meal-level tracking in Version 1.
+- NutritionEntry contains only daily totals.
+
