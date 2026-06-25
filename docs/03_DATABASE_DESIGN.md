@@ -483,3 +483,55 @@ Archived
 
 The application MUST reject invalid transitions.
 
+
+---
+
+## Mission Entity Contract (Final)
+
+**Note:** This contract supersedes any previous Mission definitions. The field `targetWeightLossKg` is removed. `name` is now optional.
+
+| Field | Type | Required | Validation | Description |
+|-------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique mission identifier |
+| name | String | No | Max 100 characters, auto-generated if omitted | Mission name (optional) |
+| description | String | No | Max 500 characters | Optional description |
+| startWeightKg | Double | Yes | > 0 and < 300 | Starting body weight in kg |
+| targetWeightKg | Double | Yes | > 0 and < 300, must be < startWeightKg | Target body weight in kg |
+| targetDate | Date | Yes | Future date | Mission target date |
+| startDate | Date | Yes | Auto Generated | Mission start date |
+| endDate | Date | No | Nullable | Completion date |
+| status | Enum | Yes | Draft, Active, Paused, Completed, Archived | Mission lifecycle state |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+### Derived Values (Not Stored)
+
+| Field | Description |
+|-------|-------------|
+| targetWeightLossKg | Calculated as startWeightKg - targetWeightKg |
+| remainingWeightKg | Current weight minus targetWeightKg |
+| remainingCalories | Total calories needed to lose remaining weight |
+| missionProgress | Percentage of target achieved |
+| projectedCompletion | Estimated completion date |
+| missionConfidence | Confidence level based on data |
+
+---
+
+### Validation Rules
+
+- **name**: If omitted, auto-generated as `"Mission — {startWeightKg} → {targetWeightKg} kg"`
+- **startWeightKg**: > 0 and < 300
+- **targetWeightKg**: > 0 and < 300, and < startWeightKg
+- **targetDate**: Must be after startDate
+
+---
+
+### State Machine (Unchanged)
+
+Draft → Active → Paused ↔ Active → Completed → Archived
+
+Valid transitions as previously defined.
+
