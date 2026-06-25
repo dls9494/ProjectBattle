@@ -287,3 +287,93 @@ The user owns their data.
 
 Project Battle must always provide a way to export all personal data.
 
+
+# 6. Data Flow Architecture
+
+Project Battle follows a one-way data flow.
+
+The flow of information MUST always follow this sequence.
+
+User Input
+
+↓
+
+Validation Engine
+
+↓
+
+Repository Layer
+
+↓
+
+Local Database
+
+↓
+
+Calculation Engine
+
+↓
+
+Intelligence Engine
+
+↓
+
+AI Explanation Engine (Optional)
+
+↓
+
+Presentation Layer
+
+---
+
+## Data Flow Rules
+
+### Rule 1
+
+Raw user input MUST always be stored before any calculations occur.
+
+---
+
+### Rule 2
+
+The Calculation Engine MUST only consume validated data.
+
+---
+
+### Rule 3
+
+The Intelligence Engine MUST only consume calculated data.
+
+It MUST NOT read raw user input directly.
+
+---
+
+### Rule 4
+
+The AI Explanation Engine MUST only consume structured intelligence.
+
+It MUST NEVER access:
+
+- Hive
+- Repositories
+- Raw logs
+- Screenshots
+
+---
+
+### Rule 5
+
+The Presentation Layer MUST never perform calculations.
+
+It only displays information.
+
+---
+
+## Single Source of Truth
+
+The Local Database is the only persistent source of truth.
+
+Everything else is regenerated from stored facts.
+
+Project Battle MUST always be capable of rebuilding every dashboard, report, projection, and intelligence summary using only the stored raw data.
+
