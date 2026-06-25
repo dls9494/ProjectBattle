@@ -521,3 +521,110 @@ Indicate how reliable the conclusion is.
 Suggest what would be required to achieve the selected mission target.
 
 Recommendations must never be judgmental or prescriptive.
+
+# 9. Intelligence System
+
+## 9.1 Overview
+
+The Intelligence System is the core differentiator of Project Battle.
+
+Its purpose is not to motivate, coach, or judge.
+
+Its purpose is to analyze user data and generate evidence-backed intelligence.
+
+Every intelligence output shall be generated from structured data.
+
+---
+
+## 9.2 Intelligence Levels
+
+Project Battle shall support four levels of intelligence.
+
+### Instant Intelligence
+
+Generated immediately after new data is entered.
+
+Purpose:
+
+Provide immediate feedback based on the latest information.
+
+---
+
+### Daily Intelligence
+
+Generated from a single day's data.
+
+Focus:
+
+- Daily deficit
+- Water
+- Protein
+- Sleep
+- Walking
+- Mission contribution
+
+---
+
+### Weekly Intelligence
+
+Generated from historical trends.
+
+Focus:
+
+- Weight trend
+- Walking trend
+- Protein trend
+- Water trend
+- Sleep trend
+- Mission pace
+
+---
+
+### Mission Intelligence
+
+Generated from the complete mission history.
+
+Focus:
+
+- Overall mission performance
+- Trend analysis
+- Projection updates
+- Pattern recognition
+- Mission review
+
+---
+
+## 9.3 Intelligence Structure
+
+Every intelligence report shall contain the following sections.
+
+### Observation
+
+Describe what the data shows.
+
+---
+
+### Why It Matters
+
+Explain why the observation is relevant.
+
+---
+
+### Evidence
+
+Present the supporting numerical evidence.
+
+---
+
+### Confidence
+
+Indicate how reliable the conclusion is.
+
+---
+
+### Recommendation (Optional)
+
+Suggest what would be required to achieve the selected mission target.
+
+Recommendations must never be judgmental or prescriptive.
+
