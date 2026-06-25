@@ -71,3 +71,62 @@ The following services contain business logic.
 - Intelligence Engine
 - Explanation Layer
 
+
+# 4. Entity Relationships
+
+UserProfile
+
+↓
+
+creates
+
+↓
+
+Mission
+
+↓
+
+contains
+
+↓
+
+DailyRecord
+
+↓
+
+references
+
+├── WeightEntry
+├── NutritionEntry
+├── WaterEntry
+├── SleepEntry
+└── ActivityEntry
+
+Mission
+
+↓
+
+produces
+
+↓
+
+MissionSnapshot
+
+MissionSnapshot
+
+↓
+
+feeds
+
+↓
+
+Intelligence Service
+
+↓
+
+feeds
+
+↓
+
+Explanation Service
+
