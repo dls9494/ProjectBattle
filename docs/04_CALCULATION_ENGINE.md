@@ -71,3 +71,19 @@ The engine produces:
 
 No output produced by this engine is permanently stored.
 
+
+# 4. Calculation Pipeline
+
+Every calculation MUST execute in the following order.
+
+1. Validate Input
+2. Calculate Body Metrics
+3. Calculate Daily Metrics
+4. Calculate Mission Metrics
+5. Calculate Confidence
+6. Calculate Data Reliability
+
+Each stage MUST complete successfully before the next stage begins.
+
+If validation fails, the pipeline MUST terminate with an error.
+
