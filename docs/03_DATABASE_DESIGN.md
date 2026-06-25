@@ -549,3 +549,29 @@ Valid transitions as previously defined.
 - Greater than 0
 - Must be less than Start Weight
 
+
+# 7. Entity Contract - DailyRecord
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| missionId | UUID v7 | Yes | Must exist | Parent mission |
+| date | Date | Yes | Unique per mission | Calendar date |
+| nutritionEntryId | UUID v7 | No | Nullable | Nutrition reference |
+| waterEntryId | UUID v7 | No | Nullable | Water reference |
+| sleepEntryId | UUID v7 | No | Nullable | Sleep reference |
+| activityEntryId | UUID v7 | No | Nullable | Activity reference |
+| weightEntryId | UUID v7 | No | Nullable | Weight reference |
+| notes | String | No | Max 1000 chars | Optional notes |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+## Rules
+
+- One DailyRecord per calendar day per mission.
+- DailyRecord is an aggregator only.
+- It MUST NOT store calculated values.
+
