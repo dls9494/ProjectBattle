@@ -617,3 +617,23 @@ Valid transitions as previously defined.
 - Unit is litres.
 - One WaterEntry per DailyRecord.
 
+
+# 10. Entity Contract - SleepEntry
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| hours | Double | Yes | >= 0 | Total sleep duration |
+| source | Enum | Yes | Manual | Data source |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+## Rules
+
+- Stores total sleep duration for one day.
+- Unit is hours.
+- One SleepEntry per DailyRecord.
+
