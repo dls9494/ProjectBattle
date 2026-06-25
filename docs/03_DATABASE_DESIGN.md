@@ -583,6 +583,7 @@ Valid transitions as previously defined.
 | id | UUID v7 | Yes | Auto Generated | Unique identifier |
 | calories | Integer | Yes | >= 0 | Total calories |
 | proteinGrams | Double | Yes | >= 0 | Protein intake |
+| source | Enum | Yes | Manual, AI | Data source |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
 | schemaVersion | Integer | Yes | Default = 1 | Schema version |
