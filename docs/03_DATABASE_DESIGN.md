@@ -661,3 +661,23 @@ Valid transitions as previously defined.
 - Screenshot is stored locally only.
 - AI-extracted values require user confirmation before saving.
 
+
+# 12. Entity Contract - WeightEntry
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| weightKg | Double | Yes | > 0 | Body weight |
+| source | Enum | Yes | Manual | Data source |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+## Rules
+
+- Weight is entered only when the user chooses.
+- Multiple entries on the same day are allowed, but the latest entry is used for calculations.
+- Historical entries are never deleted.
+
