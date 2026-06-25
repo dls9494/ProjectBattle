@@ -804,3 +804,46 @@ Valid transitions as previously defined.
 - BMI, BMR and Maintenance Calories MUST NOT be stored.
 - Height changes are rare but supported.
 
+
+# 5. Entity Contract - Mission (Refactored)
+
+**Note:** This contract supersedes all previous Mission definitions. `startWeightKg` is removed. `initialWeightEntryId` is added.
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique mission identifier |
+| name | String | No | Max 100 chars, auto-generated if omitted | Mission name (optional) |
+| description | String | No | Max 500 chars | Optional description |
+| goalReason | String | No | Max 200 chars | Context (e.g., "August 15 Event") |
+| initialWeightEntryId | UUID v7 | Yes | Must exist | Reference to starting WeightEntry |
+| targetWeightKg | Double | Yes | > 0 and < 300, must be < start weight | Target body weight in kg |
+| targetDate | Date | Yes | Future date | Mission target date |
+| status | Enum | Yes | Draft, Active, Paused, Completed, Archived | Mission lifecycle state |
+| startDate | Date | Yes | Auto Generated | Mission start date |
+| endDate | Date | No | Nullable | Completion date |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| version | Integer | Yes | Default = 1 | Entity version |
+
+---
+
+## Derived Values (Not Stored)
+
+| Field | Description |
+|-------|-------------|
+| startWeightKg | Retrieved from initialWeightEntryId.weightKg |
+| currentWeightKg | Retrieved from latest official WeightEntry |
+| targetWeightLossKg | startWeightKg - targetWeightKg |
+| remainingWeightKg | currentWeightKg - targetWeightKg |
+| remainingCalories | remainingWeightKg × 7700 |
+| missionProgress | ((startWeightKg - currentWeightKg) / (startWeightKg - targetWeightKg)) × 100 |
+
+---
+
+## Rules
+
+- `initialWeightEntryId` MUST reference an existing WeightEntry.
+- Current weight is always the latest official WeightEntry.
+- `targetWeightKg` MUST be less than the start weight.
+- Weight is the single source of truth – never stored in Mission.
+
