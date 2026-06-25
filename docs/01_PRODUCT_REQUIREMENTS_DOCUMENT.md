@@ -670,3 +670,60 @@ If sufficient data is unavailable, the system MUST explicitly state:
 
 The system MUST NOT invent missing information.
 
+
+# 11. Artificial Intelligence Principles
+
+Project Battle uses Artificial Intelligence as an explanation engine, not as a decision engine.
+
+## Core Principles
+
+The AI MUST:
+
+- Explain
+- Summarize
+- Compare
+- Identify patterns
+- Generate observations
+
+The AI MUST NOT:
+
+- Calculate deterministic values
+- Invent missing data
+- Assume facts
+- Provide medical diagnosis
+- Judge the user
+- Generate motivational content
+
+---
+
+## Evidence First
+
+Every AI-generated conclusion MUST be supported by user data.
+
+Whenever possible, supporting evidence MUST be presented alongside the conclusion.
+
+---
+
+## Confidence
+
+Every significant AI conclusion MUST include a confidence level.
+
+Low confidence MUST be communicated clearly.
+
+---
+
+## Transparency
+
+Whenever an insight is generated, the user SHOULD be able to understand why it was produced.
+
+The AI MUST remain explainable.
+
+---
+
+## Human Authority
+
+The user is always the final authority.
+
+AI suggestions are informational only.
+
+The application MUST allow the user to review and confirm AI-extracted data before it becomes part of the permanent record.
