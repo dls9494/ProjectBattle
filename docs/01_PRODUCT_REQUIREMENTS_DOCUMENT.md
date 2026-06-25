@@ -727,3 +727,152 @@ The user is always the final authority.
 AI suggestions are informational only.
 
 The application MUST allow the user to review and confirm AI-extracted data before it becomes part of the permanent record.
+
+# 12. User Flows
+
+## 12.1 First Launch
+
+Flow:
+
+Launch Application
+
+↓
+
+Accept Project Philosophy
+
+↓
+
+Create User Profile
+
+↓
+
+Set Initial Weight
+
+↓
+
+Create First Mission
+
+↓
+
+Enter Mission Target
+
+↓
+
+Mission Dashboard
+
+---
+
+## 12.2 Daily Flow
+
+Open App
+
+↓
+
+Mission Dashboard
+
+↓
+
+Review "What Changed"
+
+↓
+
+Log Daily Data
+
+- Water
+- Calories
+- Protein
+- Sleep
+
+↓
+
+Upload Samsung Health Screenshot
+
+↓
+
+Review AI Extraction
+
+↓
+
+Confirm Data
+
+↓
+
+Automatic Calculations
+
+↓
+
+Daily Intelligence Generated
+
+↓
+
+Dashboard Updated
+
+---
+
+## 12.3 Weekly Flow
+
+Open App
+
+↓
+
+Update Weight
+
+↓
+
+Automatic Recalculation
+
+↓
+
+Updated Mission Projection
+
+↓
+
+Weekly Intelligence Generated
+
+---
+
+## 12.4 Pause Mission
+
+Mission
+
+↓
+
+Pause
+
+↓
+
+Select Reason (Optional)
+
+↓
+
+Mission Status = Paused
+
+↓
+
+Countdown Stops
+
+↓
+
+Resume Anytime
+
+---
+
+## 12.5 Complete Mission
+
+Mission Target Reached
+
+↓
+
+Mission Review Generated
+
+↓
+
+Mission Archived
+
+↓
+
+Create New Mission
+
+↓
+
+Return to Dashboard
