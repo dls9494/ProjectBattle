@@ -668,6 +668,7 @@ Valid transitions as previously defined.
 |--------|------|----------|------------|-------------|
 | id | UUID v7 | Yes | Auto Generated | Unique identifier |
 | weightKg | Double | Yes | > 0 | Body weight |
+| isOfficial | Boolean | Yes | Default = true | Used for mission calculations |
 | source | Enum | Yes | Manual | Data source |
 | createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
 | updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
@@ -680,4 +681,39 @@ Valid transitions as previously defined.
 - Weight is entered only when the user chooses.
 - Multiple entries on the same day are allowed, but the latest entry is used for calculations.
 - Historical entries are never deleted.
+
+
+# 13. Entity Contract - TimelineEvent
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| missionId | UUID v7 | Yes | Must exist | Parent mission |
+| eventType | Enum | Yes | Valid enum | Timeline event type |
+| eventDate | DateTime (UTC) | Yes | Required | Event timestamp |
+| title | String | Yes | Max 100 chars | Event title |
+| description | String | No | Max 500 chars | Optional details |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+## Event Types
+
+- MissionCreated
+- MissionStarted
+- MissionPaused
+- MissionResumed
+- WeightUpdated
+- MilestoneReached
+- MissionCompleted
+- MissionArchived
+
+---
+
+## Rules
+
+- Timeline events are immutable.
+- Timeline events are never edited.
+- Timeline events are never deleted.
 
