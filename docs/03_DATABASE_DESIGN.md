@@ -780,3 +780,27 @@ Valid transitions as previously defined.
 - Settings affect application behavior only.
 - Settings never contain mission or health data.
 
+
+# 16. Entity Contract - UserProfile
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| displayName | String | Yes | 1–100 characters | User display name |
+| dateOfBirth | Date | Yes | Valid past date | Used to calculate age |
+| gender | Enum | Yes | Male, Female, Other | Biological sex for calculations |
+| heightCm | Double | Yes | > 0 | Height in centimeters |
+| defaultActivityLevel | Enum | Yes | Sedentary, Light, Moderate, Active, VeryActive | Default maintenance multiplier |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| version | Integer | Yes | Default = 1 | Entity version |
+
+---
+
+## Rules
+
+- Only one UserProfile exists in Version 1.
+- Age MUST be calculated from dateOfBirth.
+- BMI, BMR and Maintenance Calories MUST NOT be stored.
+- Height changes are rare but supported.
+
