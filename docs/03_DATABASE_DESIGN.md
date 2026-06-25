@@ -597,3 +597,23 @@ Valid transitions as previously defined.
 - No meal-level tracking in Version 1.
 - NutritionEntry contains only daily totals.
 
+
+# 9. Entity Contract - WaterEntry
+
+| Field | Type | Required | Validation | Description |
+|--------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique identifier |
+| litres | Double | Yes | >= 0 | Water consumed |
+| source | Enum | Yes | Manual | Data source |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+## Rules
+
+- Stores the total water consumed for the day.
+- Unit is litres.
+- One WaterEntry per DailyRecord.
+
