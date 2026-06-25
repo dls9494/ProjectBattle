@@ -213,3 +213,110 @@ Clamp result between:
 
 0% and 100%
 
+
+# 8. Projection Engine
+
+## Estimated Completion Date
+
+The projected completion date is calculated using the rolling average daily deficit from the previous 14 valid days.
+
+If fewer than 7 valid days exist:
+
+- Projection Confidence MUST be Low.
+
+If 7–13 valid days exist:
+
+- Projection Confidence MUST be Medium.
+
+If 14 or more valid days exist:
+
+- Projection Confidence MAY be High.
+
+---
+
+## Projection Rules
+
+The Projection Engine MUST:
+
+- Ignore missing days.
+- Ignore paused mission days.
+- Ignore future dates.
+- Recalculate immediately whenever new data is added or historical data is edited.
+
+
+# 9. Confidence Score
+
+The Confidence Score represents how trustworthy the current projections are.
+
+Range:
+
+0–100%
+
+Factors:
+
+- Number of weight updates
+- Number of valid daily logs
+- Logging consistency
+- Missing data
+- Projection stability
+
+The Confidence Score MUST NOT measure user performance.
+
+It measures only confidence in the calculations.
+
+---
+
+# 10. Data Reliability Score
+
+The Data Reliability Score measures the quality and completeness of the available data.
+
+Range:
+
+0–100%
+
+The score considers:
+
+- Calories logged
+- Protein logged
+- Water logged
+- Sleep logged
+- Activity logged
+- Recent weight update
+
+Missing values reduce reliability.
+
+Incorrect values are never assumed.
+
+
+# 11. Calculation Principles
+
+The Calculation Engine MUST:
+
+- Be deterministic.
+- Produce identical outputs for identical inputs.
+- Never modify stored data.
+- Never access the UI.
+- Never call AI services.
+- Never depend on Flutter.
+- Never depend on Hive.
+
+The Calculation Engine MUST remain a pure Domain component.
+
+---
+
+# 12. Formula Registry
+
+Version 1 uses the following formulas.
+
+| Metric | Formula / Method |
+|---------|------------------|
+| BMI | Weight / Height² |
+| BMR | Mifflin-St Jeor Equation |
+| Maintenance Calories | BMR × Activity Multiplier |
+| Daily Deficit | (Maintenance + Exercise) − Intake |
+| Remaining Calories | Remaining Weight × 7700 kcal |
+| Mission Progress | Weight Progress Formula |
+| Projection | 14-Day Rolling Average |
+
+Future formula changes MUST be versioned.
+
