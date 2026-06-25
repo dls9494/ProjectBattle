@@ -956,3 +956,76 @@ A feature is **NOT DONE** if:
 
 This definition serves as the quality gate before every release.
 
+
+# 14. Definition of Done
+
+A feature is considered DONE only if all of the following are true.
+
+## Functional
+
+- The feature behaves according to the PRD.
+- All acceptance criteria are satisfied.
+- Edge cases have been considered.
+
+---
+
+## Engineering
+
+- Code follows the project architecture.
+- Code is documented.
+- No unnecessary complexity exists.
+- Performance requirements are satisfied.
+
+---
+
+## User Experience
+
+- The feature is intuitive.
+- User input is minimized.
+- Calculations are transparent.
+- The interface remains consistent with the Design System.
+
+---
+
+## Intelligence
+
+- Every insight contains supporting evidence.
+- Confidence is displayed where applicable.
+- AI never invents information.
+- AI remains explainable.
+
+---
+
+## Testing
+
+- Unit tests pass.
+- Widget tests pass where applicable.
+- Manual testing completed.
+- No critical defects remain.
+
+---
+
+## Documentation
+
+- Relevant documentation has been updated.
+- Design decisions have been recorded if required.
+
+A feature is NOT complete until every section above has been satisfied.
+
+---
+
+# 15. Definition of Not Done
+
+A feature is NOT DONE if any of the following are true.
+
+- It violates the Project Constitution.
+- It introduces unnecessary complexity.
+- It cannot be explained.
+- It lacks supporting evidence.
+- It requires internet access for a core feature.
+- It stores derived intelligence instead of raw facts.
+- It breaks offline functionality.
+- It has not been tested.
+- It has not been documented.
+- It cannot be maintained confidently.
+
