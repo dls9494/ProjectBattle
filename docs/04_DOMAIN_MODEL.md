@@ -130,3 +130,48 @@ feeds
 
 Explanation Service
 
+
+# 5. Domain Invariants
+
+The following rules MUST always be true.
+
+## UserProfile
+
+- Exactly one UserProfile exists.
+
+---
+
+## Mission
+
+- At most one Mission MAY have the status Active.
+- Archived missions are immutable.
+- Completed missions cannot return to Active.
+
+---
+
+## DailyRecord
+
+- At most one DailyRecord exists per calendar day per mission.
+
+---
+
+## WeightEntry
+
+- At most one WeightEntry per day MAY be marked as isOfficial.
+
+---
+
+## MissionSnapshot
+
+- MissionSnapshot is immutable.
+- MissionSnapshot is never persisted.
+- MissionSnapshot is regenerated whenever dependent data changes.
+
+---
+
+## General
+
+- Raw facts are never overwritten.
+- Derived values are never stored as permanent data.
+- Historical records are never physically deleted.
+
