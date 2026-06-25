@@ -60,3 +60,125 @@ Reason
 
 Future migrations to SQLite or Isar MUST be possible without changing the Domain Layer.
 
+
+# 4. Core Domain Entities
+
+Project Battle is composed of independent domain entities.
+
+Each entity owns one responsibility.
+
+Relationships between entities shall be explicit.
+
+---
+
+## Core Entities
+
+Version 1 consists of the following entities.
+
+### Mission
+
+Represents one active or historical mission.
+
+Purpose:
+
+"What am I trying to achieve?"
+
+---
+
+### Daily Log
+
+Represents everything recorded for one calendar day.
+
+Purpose:
+
+"What happened today?"
+
+---
+
+### Weight Entry
+
+Represents one body weight measurement.
+
+Purpose:
+
+"How did my body weight change?"
+
+---
+
+### Activity Entry
+
+Represents imported Samsung Health activity.
+
+Purpose:
+
+"What physical activity occurred today?"
+
+---
+
+### Nutrition Entry
+
+Represents manually entered nutrition.
+
+Purpose:
+
+"What did I consume today?"
+
+---
+
+### Sleep Entry
+
+Represents one sleep record.
+
+Purpose:
+
+"How much did I sleep?"
+
+---
+
+### Water Entry
+
+Represents daily hydration.
+
+Purpose:
+
+"How much water did I drink?"
+
+---
+
+### Mission Timeline Event
+
+Represents important mission events.
+
+Examples:
+
+- Mission Started
+- Mission Paused
+- Mission Resumed
+- Weight Updated
+- Milestone Reached
+- Mission Completed
+
+Purpose:
+
+"What happened during this mission?"
+
+---
+
+### Pattern Memory
+
+Represents long-term learned statistics.
+
+Purpose:
+
+"What has Project Battle learned from historical data?"
+
+---
+
+### Settings
+
+Stores application preferences.
+
+Purpose:
+
+"How should Project Battle behave?"
+
