@@ -328,3 +328,158 @@ State Transitions:
 
 Exactly one mission MAY have the status Active.
 
+
+## State Machine
+
+Mission status follows a strict lifecycle.
+
+Draft
+
+↓
+
+Active
+
+↓
+
+Paused
+
+↓
+
+Active
+
+↓
+
+Completed
+
+↓
+
+Archived
+
+---
+
+## Valid State Transitions
+
+Draft
+→ Active
+
+Active
+→ Paused
+
+Paused
+→ Active
+
+Active
+→ Completed
+
+Completed
+→ Archived
+
+---
+
+## Invalid State Transitions
+
+Archived
+→ Active
+
+Archived
+→ Draft
+
+Completed
+→ Active
+
+Draft
+→ Completed
+
+Draft
+→ Archived
+
+The application MUST reject invalid transitions.
+
+
+---
+
+## Updated Mission Entity Contract
+
+**Note:** This supersedes the previous Mission contract. The field `targetWeightLossKg` is replaced with `startWeightKg` and `targetWeightKg`.
+
+| Field | Type | Required | Validation | Description |
+|-------|------|----------|------------|-------------|
+| id | UUID v7 | Yes | Auto Generated | Unique mission identifier |
+| name | String | Yes | 1–100 characters | Mission name |
+| description | String | No | Max 500 characters | Optional description |
+| startWeightKg | Double | Yes | > 0 and < 300 | Starting body weight in kg |
+| targetWeightKg | Double | Yes | > 0 and < 300, must be < startWeightKg | Target body weight in kg |
+| targetDate | Date | Yes | Future date | Mission target date |
+| startDate | Date | Yes | Auto Generated | Mission start date |
+| endDate | Date | No | Nullable | Completion date |
+| status | Enum | Yes | Draft, Active, Paused, Completed, Archived | Mission lifecycle state |
+| createdAt | DateTime (UTC) | Yes | Auto Generated | Creation timestamp |
+| updatedAt | DateTime (UTC) | Yes | Auto Updated | Last modification |
+| schemaVersion | Integer | Yes | Default = 1 | Schema version |
+
+---
+
+### Derived Values (Not Stored)
+
+| Field | Description |
+|-------|-------------|
+| targetWeightLossKg | Calculated as startWeightKg - targetWeightKg |
+| remainingWeightKg | Current weight minus targetWeightKg |
+| remainingCalories | Total calories needed to lose remaining weight |
+| missionProgress | Percentage of target achieved |
+| projectedCompletion | Estimated completion date |
+| missionConfidence | Confidence level based on data |
+
+---
+
+### Validation Rules (Updated)
+
+#### startWeightKg
+- Required
+- Must be greater than 0
+- Must be less than 300
+
+#### targetWeightKg
+- Required
+- Must be greater than 0
+- Must be less than 300
+- Must be less than startWeightKg
+
+#### targetDate
+- Required
+- Must not be earlier than mission start date
+
+---
+
+### State Machine (Unchanged)
+
+Mission status follows a strict lifecycle.
+
+Draft
+    ↓
+Active
+    ↓
+Paused (↔ Active)
+    ↓
+Completed
+    ↓
+Archived
+
+#### Valid Transitions
+
+- Draft → Active
+- Active → Paused
+- Paused → Active
+- Active → Completed
+- Completed → Archived
+
+#### Invalid Transitions
+
+- Archived → Active
+- Archived → Draft
+- Completed → Active
+- Draft → Completed
+- Draft → Archived
+
+The application MUST reject invalid transitions.
+
