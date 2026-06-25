@@ -535,3 +535,17 @@ Draft → Active → Paused ↔ Active → Completed → Archived
 
 Valid transitions as previously defined.
 
+
+### Start Weight
+
+- Required
+- Greater than 0
+
+---
+
+### Target Weight
+
+- Required
+- Greater than 0
+- Must be less than Start Weight
+
